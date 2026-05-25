@@ -1,73 +1,23 @@
-# React + TypeScript + Vite
+# Complex Password Strength Checker - `ComPaSt`
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Application is running [HERE](https://xantus10.github.io/ComPaSt/).
 
-Currently, two official plugins are available:
+## What is `ComPaSt`?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+`ComPaSt` is a password strength checker unlike any other. Most password checkers don't rise above the basic level and give you only generic info. `ComPaSt` gives you more!
 
-## React Compiler
+Usual sites only check for
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Password length
+- Whether password contains a character from a specific charset, like
+  - A number
+  - An uppercase character
+  - A symbol
 
-## Expanding the ESLint configuration
+And based on that they tell you **only**
+- If a password is "strong" (What does that even mean?)
+- And sometimes an approximation of how long your password would take to break
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+`ComPaSt` does that and **much much more** than that!
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+(For a full explanation, I recommend checking the website)
