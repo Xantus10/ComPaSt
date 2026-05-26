@@ -30,7 +30,7 @@ export function charType(char: string): Charset {
   } else if (charcode >= 65 && charcode <= 90) {
     return 'upper'
   } else if (charcode >= 97 && charcode <= 122) {
-    return 'number'
+    return 'lower'
   } else {
     return 'symbol'
   }
@@ -71,7 +71,7 @@ export class Password {
 export interface PasswordChecks {low: boolean, medium: boolean, high: boolean};
 
 export function normalChecks(password: Password): PasswordChecks {
-  let res: PasswordChecks = {low: false, medium: false, high: false};
+  let res: PasswordChecks = {low: true, medium: true, high: true};
   if (password.length < 12 || !password.contains('symbol')) {
     res.high = false;
   }
