@@ -68,20 +68,3 @@ export class Password {
   }
 };
 
-export interface PasswordChecks {low: boolean, medium: boolean, high: boolean};
-
-export function normalChecks(password: Password): PasswordChecks {
-  let res: PasswordChecks = {low: true, medium: true, high: true};
-  if (password.length < 12 || !password.contains('symbol')) {
-    res.high = false;
-  }
-  if (password.length < 10 || !password.contains('number')) {
-    res.medium = false;
-  }
-  if (password.length < 8 || !password.contains('upper')|| !password.contains('lower')) {
-    res.low = false;
-  }
-  if (res.low == false) res.medium = false;
-  if (res.medium == false) res.high = false;
-  return res;
-}

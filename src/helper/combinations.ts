@@ -38,7 +38,11 @@ export function timeToCrack(combinations: bigint): string {
   if (compare > combinations) {
     return 'In a thousand years';
   }
-  compare *= BigInt(14e6);
+  compare *= BigInt(1000);
+  if (compare > combinations) {
+    return 'In a million years';
+  }
+  compare *= BigInt(14e3);
   if (compare > combinations) {
     return 'In a single universe';
   }
