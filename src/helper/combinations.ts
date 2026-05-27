@@ -6,6 +6,7 @@ export function passwordCombinations(charsetCharacters: number, length: number):
 }
 
 export function timeToCrack(combinations: bigint): string {
+  if (combinations == BigInt(0)) return '-';
   let compare = BigInt(86400) * HASHES_PER_SECOND
   if (compare > combinations) {
     return 'In a day';

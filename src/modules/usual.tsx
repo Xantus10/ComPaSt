@@ -27,7 +27,7 @@ function UsualModule({ password }: {password: Password}) {
   let checks = normalChecks(password);
   let charsetCharacters = (password.contains('lower') ? 26 : 0) + (password.contains('upper') ? 26 : 0) +
                           (password.contains('number') ? 10 : 0) + (password.contains('symbol') ? 33 : 0);
-  let numOfCombinations = passwordCombinations(charsetCharacters, password.length);
+  let numOfCombinations = (charsetCharacters == 0) ? BigInt(0) : passwordCombinations(charsetCharacters, password.length);
 
   return (
       <>
