@@ -16,6 +16,7 @@ function App() {
         <Box m="md">
             <Routes>
               <Route path='/' element={<MainPage />} />
+              <Route path='/guide' element={<>Guide</>} />
               <Route path='/what' element={<>What
 Length
 
