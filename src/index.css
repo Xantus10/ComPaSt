@@ -22,3 +22,7 @@ body {
   background-color: #242424;
   color: whitesmoke;
 }
+
+h1, h2, h3, h4, p {
+  margin: 12px 0px 12px 0px !important;
+}

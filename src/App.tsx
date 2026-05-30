@@ -1,7 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Paper, Title, Box } from '@mantine/core'
+
 import Navigation from './components/Navigation'
 import MainPage from './pages/MainPage'
+import MakeStrongPassPage from './pages/MakeStrongPassPage'
+
 import './App.css'
 
 function App() {
@@ -16,7 +19,7 @@ function App() {
         <Box m="md">
             <Routes>
               <Route path='/' element={<MainPage />} />
-              <Route path='/guide' element={<>Guide</>} />
+              <Route path='/guide' element={<MakeStrongPassPage />} />
               <Route path='/what' element={<>What
 Length
 
