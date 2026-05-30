@@ -1,6 +1,8 @@
 
 export type Charset = 'lower' | 'upper' | 'number' | 'symbol' | 'other';
 
+export const CHARSETS: Charset[] = ['lower', 'upper', 'number', 'symbol', 'other'];
+
 /**
  * One single character
  */
@@ -40,6 +42,8 @@ export class Password {
   raw = '';
   chars: Character[] = [];
   length = 0;
+
+  health = 100;
 
   counts: Record<Charset, number> = {
     upper: 0,

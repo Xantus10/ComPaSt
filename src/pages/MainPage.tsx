@@ -4,6 +4,7 @@ import { PasswordInput, Title } from '@mantine/core'
 import { Password } from '../helper/password';
 
 import UsualModule from '../modules/usual';
+import LengthModule from '../modules/length';
 
 function MainPage() {
   const [inp, setInp] = useState("");
@@ -19,6 +20,8 @@ function MainPage() {
         <Title order={1} mt={50} ta='center'>Analysis results</Title>
         <Title order={2}>Usual checks</Title>
         <UsualModule password={pass} />
+        <Title order={2}>Length-based checks</Title>
+        <LengthModule password={pass} />
       </>
     )
 }
