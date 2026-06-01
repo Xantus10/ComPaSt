@@ -22,7 +22,7 @@ function TextDisplay(
       color = 'yellow.5';
       break;
     case 'info':
-      color = 'green.3';
+      color = 'blue.3';
       break;
   }
 
