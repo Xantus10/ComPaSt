@@ -15,7 +15,7 @@ export function normalChecks(password: Password): PasswordChecks {
   if (password.length < 10 || !password.contains('number')) {
     res.medium = false;
   }
-  if (password.length < 8 || !password.contains('upper')|| !password.contains('lower')) {
+  if (password.length < 8 || !password.contains('uppercase')|| !password.contains('lowercase')) {
     res.low = false;
   }
   if (res.low == false) res.medium = false;
@@ -25,7 +25,7 @@ export function normalChecks(password: Password): PasswordChecks {
 
 function UsualModule({ password }: {password: Password}) {
   let checks = normalChecks(password);
-  let charsetCharacters = (password.contains('lower') ? 26 : 0) + (password.contains('upper') ? 26 : 0) +
+  let charsetCharacters = (password.contains('lowercase') ? 26 : 0) + (password.contains('uppercase') ? 26 : 0) +
                           (password.contains('number') ? 10 : 0) + (password.contains('symbol') ? 33 : 0);
   let numOfCombinations = (charsetCharacters == 0) ? BigInt(0) : passwordCombinations(charsetCharacters, password.length);
 

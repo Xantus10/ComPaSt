@@ -6,8 +6,8 @@ import { Password, type Charset } from '../helper/password';
 import TextDisplay from '../components/TextDisplay';
 
 export const CHARSET_COLORS: Record<Charset, MantineColor> = {
-  lower: 'blue',
-  upper: 'cyan',
+  lowercase: 'blue',
+  uppercase: 'cyan',
   number: 'green',
   symbol: 'grape',
   other: 'red'

@@ -6,7 +6,7 @@ import TextDisplay from '../components/TextDisplay';
 
 
 export function findLongestConsecutiveChunks(password: Password): Record<Charset, number> {
-  let ret: Record<Charset, number> = {'lower': 0, 'number': 0, 'upper': 0, 'symbol': 0, 'other': 0};
+  let ret: Record<Charset, number> = {lowercase: 0, number: 0, uppercase: 0, symbol: 0, other: 0};
   let candidateType: Charset = password.chars[0].type;
   let candidateCount = 0;
 

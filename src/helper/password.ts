@@ -1,7 +1,7 @@
 
-export type Charset = 'lower' | 'upper' | 'number' | 'symbol' | 'other';
+export type Charset = 'lowercase' | 'uppercase' | 'number' | 'symbol' | 'other';
 
-export const CHARSETS: Charset[] = ['lower', 'upper', 'number', 'symbol', 'other'];
+export const CHARSETS: Charset[] = ['lowercase', 'uppercase', 'number', 'symbol', 'other'];
 
 /**
  * One single character
@@ -30,9 +30,9 @@ export function charType(char: string): Charset {
   } else if (charcode >= 48 && charcode <= 57) {
     return 'number'
   } else if (charcode >= 65 && charcode <= 90) {
-    return 'upper'
+    return 'uppercase'
   } else if (charcode >= 97 && charcode <= 122) {
-    return 'lower'
+    return 'lowercase'
   } else {
     return 'symbol'
   }
@@ -46,8 +46,8 @@ export class Password {
   health = 100;
 
   counts: Record<Charset, number> = {
-    upper: 0,
-    lower: 0,
+    uppercase: 0,
+    lowercase: 0,
     number: 0,
     symbol: 0,
     other: 0
