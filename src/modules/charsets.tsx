@@ -23,7 +23,7 @@ export function usesCommonSymbols(password: Password): {single: boolean; onlyCom
 
   password.chars.forEach((ch) => {
     if (ch.type === 'symbol') {
-      ret.onlyCommon ||= (COMMON_CHARACTERS.includes(ch.value));
+      ret.onlyCommon &&= (COMMON_CHARACTERS.includes(ch.value));
     }
   })
 
