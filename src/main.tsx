@@ -4,6 +4,7 @@ import { MantineProvider } from '@mantine/core'
 import App from './App.tsx'
 
 import '@mantine/core/styles.css'
+import '@mantine/charts/styles.css';
 
 import './index.css'
 
