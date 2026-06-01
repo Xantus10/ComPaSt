@@ -1,6 +1,6 @@
 import { Title, Table, Text } from '@mantine/core'
 
-import { Password, type Charset, CHARSETS } from '../helper/password';
+import { Password, type Charset } from '../helper/password';
 
 import TextDisplay from '../components/TextDisplay';
 
@@ -45,10 +45,10 @@ function LengthModule({ password }: {password: Password}) {
 
   let consecutiveChunks = findLongestConsecutiveChunks(password);
 
-  CHARSETS.forEach((val) => {
-    if (consecutiveChunks[val] > 4) {
+  Object.entries(consecutiveChunks).forEach(([key, val]) => {
+    if (val > 4) {
       body.push(
-        [<TextDisplay sev='severe'>Password contains long chunks of {val} charset ({consecutiveChunks[val].toString()})</TextDisplay>,
+        [<TextDisplay sev='severe'>Password contains long chunks of {key} charset ({val.toString()})</TextDisplay>,
         <Text>Passwords with long chunks might be more susceptible to pattern based bruteforce and may be easy to read</Text>]
       )
     }
