@@ -6,6 +6,7 @@ import { Password } from '../helper/password';
 import UsualModule from '../modules/usual';
 import LengthModule from '../modules/length';
 import CharsetsModule from '../modules/charsets';
+import PatternsModule from '../modules/patterns';
 
 function MainPage() {
   const [inp, setInp] = useState("");
@@ -25,6 +26,8 @@ function MainPage() {
         <LengthModule password={pass} />
         <Title order={2}>Charsets information</Title>
         <CharsetsModule password={pass} />
+        <Title order={2}>Pattern analysis</Title>
+        <PatternsModule password={pass} />
       </>
     )
 }
