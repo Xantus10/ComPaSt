@@ -48,7 +48,7 @@ function CharsetsModule({ password }: {password: Password}) {
     }
   })
 
-  if (password.counts.symbol > 0) {
+  if (password.contains('symbol')) {
     let commonSymbols = usesCommonSymbols(password);
     if (commonSymbols.onlyCommon) {
       if (commonSymbols.single) {
