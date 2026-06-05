@@ -27,12 +27,36 @@ export function checkCharsetPosition(password: Password, charset: Charset, posit
   return ret;
 }
 
+export function charsetWidthApart(password: Password, charset: Charset): {[width: string]: number} {
+  if (password.counts[charset] <= 1) return {};
+  let widths: number[] = [];
+
+  password.chars.forEach((val, ix) => {
+    if (val.type == charset) {
+      if (!(widths.length === 0)) widths[widths.length-1] = ix - widths[widths.length-1];
+      widths.push(ix);
+    }
+  });
+
+  widths.pop();
+
+  let ret: {[width: string]: number} = {};
+
+  widths.forEach((val) => {
+    if (!ret[val.toString()]) ret[val.toString()] = 0;
+    ret[val.toString()]++;
+  })
+
+  return ret;
+}
+
 function PatternsModule({ password }: {password: Password}) {
   if (password.length < 6) return <Title order={4} ta='center'>Too short for Pattern analysis</Title>;
   let positionbody: React.ReactNode[][] = [];
+  let sequencebody: React.ReactNode[][] = [];
 
-  let checkEnd: Charset[] = ['number', 'symbol'];
-  let checkStart: Charset[] = ['uppercase'];
+  const checkEnd: Charset[] = ['number', 'symbol'];
+  const checkStart: Charset[] = ['uppercase'];
 
   checkStart.forEach((val) => {
     let check = checkCharsetPosition(password, val, 'start');
@@ -64,10 +88,26 @@ function PatternsModule({ password }: {password: Password}) {
     }
   });
 
+  const checkWidth: Charset[] = ['uppercase', 'number'];
+
+  checkWidth.forEach((val) => {
+    if (password.counts[val] < 4) return;
+    let widths = charsetWidthApart(password, val);
+    const maxKey = Object.keys(widths).reduce((a, b) => widths[b] > widths[a] ? b : a);
+    if (widths[maxKey] >= Math.ceil(password.counts[val]/2)) {
+      sequencebody.push(
+        [<TextDisplay sev='info'>Majority of the {val} characters are {maxKey} characters apart</TextDisplay>,
+        <Text>Although not so severe, it reveals an obvious pattern in your password</Text>]
+      );
+    }
+  });
+
   return (
       <>
         <Title order={4}>Character position</Title>
         <Table data={{body: positionbody}} />
+        <Title order={4}>Sequences</Title>
+        <Table data={{body: sequencebody}} />
       </>
     )
 }
