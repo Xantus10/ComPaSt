@@ -4,6 +4,7 @@ import { Paper, Title, Box } from '@mantine/core'
 import Navigation from './components/Navigation'
 import MainPage from './pages/MainPage'
 import MakeStrongPassPage from './pages/MakeStrongPassPage'
+import WhatPage from './pages/WhatPage'
 
 import './App.css'
 
@@ -20,7 +21,8 @@ function App() {
             <Routes>
               <Route path='/' element={<MainPage />} />
               <Route path='/guide' element={<MakeStrongPassPage />} />
-              <Route path='/what' element={<>What
+              <Route path='/what' element={<WhatPage />} />
+              <Route path='/security' element={<>What
 Length
 
 Total
@@ -45,7 +47,6 @@ Number lines
 Real words - have a wordlist for every letter
 Consecutive symbol charcodes - for alpha + symbols
 Keyboard</>} />
-              <Route path='/security' element={<>Security</>} />
             </Routes>
         </Box>
       </BrowserRouter>
